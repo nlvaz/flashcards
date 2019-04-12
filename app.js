@@ -8,8 +8,8 @@ app.get('/', (req, res) => {
 	res.render('index');
 });
 
-app.get('/hello', (req, res) => {
-	res.send('<h1>Hello, JavaScript Dev!</h1>');
+app.get('/cards', (req, res) => {
+	res.render('card');
 });
 
 app.listen(3000, () => {
