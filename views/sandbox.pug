@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+head
+  title Sandbox
+body
+  header
+    h1 Random Sandbox!
+  section#content
+    h2 Table of Names:
+      table
+        tr
+          th
+            h3 First Name
+          th
+            h3 Last Name
+          each name in names
+            tr
+              if name.First
+                th= name.first
+              else
+                th First Name Not Given
+              if name.Last
+                th= name.Last
+              else
+                th Last Name Not Given
