@@ -23,6 +23,14 @@ app.get('/cards', (req, res) => {
 	res.render('card', {prompt: "Who is buried in Grant's tomb?", hint: "Think about whose tomb it is!"});
 });
 
+app.get('/hello', (req, res) => {
+	res.render('hello')
+});
+
+app.post('/hello', (req, res) => {
+	res.render('hello')
+});
+
 // /sandbox : challenge to create random path and use iteration to display first and last name from an array into two table column :)
 // First Name | Last Name
 app.get('/sandbox', (req, res) => {
