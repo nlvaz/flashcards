@@ -7,7 +7,7 @@ const names = [
 	{First: "Noelia", Last: "Vazquez"},
 	{First: "Carmen", Last: "Vazquez"},
 	{First: "German", Last: "Vazquez"},
-	{First: "Ashley", Last: "Dzergoski"},
+	{First: "Selena", Last: "Gomez"},
 	{First: "NJIT", Last: "2023"},
 	{First: "Debbie"},
 	{Last: "James"}
@@ -26,7 +26,7 @@ app.get('/cards', (req, res) => {
 // /sandbox : challenge to create random path and use iteration to display first and last name from an array into two table column :)
 // First Name | Last Name
 app.get('/sandbox', (req, res) => {
-	res.render('sandbox', {prompt: names})
+	res.render('sandbox', {names});
 });
 
 app.listen(3000, () => {

@@ -7,19 +7,21 @@ body
     h1 Random Sandbox!
   section#content
     h2 Table of Names:
-      table
+    table(style="width:50%")
+      col(width="100")
+      col(width="100")
+      tr
+        th First Name
+
+        th Last Name
+
+      each name in names
         tr
-          th
-            h3 First Name
-          th
-            h3 Last Name
-          each name in names
-            tr
-              if name.First
-                th= name.first
-              else
-                th First Name Not Given
-              if name.Last
-                th= name.Last
-              else
-                th Last Name Not Given
+          if name.First
+            td= name.First
+          else
+            td First Name Not Given
+          if name.Last
+            td= name.Last
+          else
+            td Last Name Not Given
