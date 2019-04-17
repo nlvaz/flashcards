@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -13,6 +14,7 @@ const names = [
 	{Last: "James"}
 ];
 
+app.use(bodyParser.urlencoded({ extended: false}));
 app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
@@ -28,11 +30,10 @@ app.get('/hello', (req, res) => {
 });
 
 app.post('/hello', (req, res) => {
+	console.dir(req.body);
 	res.render('hello')
 });
 
-// /sandbox : challenge to create random path and use iteration to display first and last name from an array into two table column :)
-// First Name | Last Name
 app.get('/sandbox', (req, res) => {
 	res.render('sandbox', {names});
 });
