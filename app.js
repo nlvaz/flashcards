@@ -4,20 +4,22 @@ const cookieParser = require('cookie-parser');
 
 const app = express();
 
-const names = [
-	{First: "Leilani", Last: "Vazquez"},
-	{First: "Noelia", Last: "Vazquez"},
-	{First: "Carmen", Last: "Vazquez"},
-	{First: "German", Last: "Vazquez"},
-	{First: "Selena", Last: "Gomez"},
-	{First: "NJIT", Last: "2023"},
-	{First: "Debbie"},
-	{Last: "James"}
-];
-
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(cookieParser());
+
 app.set('view engine', 'pug');
+
+app.use((req, res, next) => {
+	console.log("hello");
+	next();
+})
+app.use((req, res, next) => {
+	console.log("world");
+	next();
+})
+
+
+
 
 app.get('/', (req, res) => {
 	const name = req.cookies.username;
@@ -47,10 +49,6 @@ app.post('/goodbye', (req, res) => {
 	res.clearCookie('username');
 	res.redirect('/hello')
 })
-
-app.get('/sandbox', (req, res) => {
-	res.render('sandbox', {names});
-});
 
 app.listen(3000, () => {
 	console.log('The application is running on localhost:3000!');
