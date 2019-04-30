@@ -16,11 +16,6 @@ app.use(mainRoutes);
 app.use('/cards', cardRoutes);
 
 app.use((req, res, next) => {
-	console.log("world");
-	next();
-})
-
-app.use((req, res, next) => {
 	const err = new Error('Not Found');
 	err.status = 404;
 	next(err);
