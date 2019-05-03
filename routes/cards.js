@@ -20,15 +20,13 @@ router.get('/:id', (req, res) => {
   const text = cards[id][side];
   const { hint } = cards[id];
 
-  const templateData = { id, text, name };
+  const templateData = { id, text, name, side };
 
   if(side === 'question') {
     templateData.hint = hint;
     templateData.sideToShow = 'answer';
-    templateData.sideToShowDisplay = 'Answer';
   } else if(side === 'answer') {
     templateData.sideToShow = 'question';
-    templateData.sideToShowDisplay = 'Question';
   }
 
 	res.render('card', templateData);
